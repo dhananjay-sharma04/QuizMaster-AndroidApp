@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="main">#0099ff</color>
+    <color name="secondary">#ED4442</color>
+    <color name="colorEditTextBgColor">#f2f5fa</color>
+    <color name="colorEditTextBorderColor">#E9EBFF</color>
+</resources>
