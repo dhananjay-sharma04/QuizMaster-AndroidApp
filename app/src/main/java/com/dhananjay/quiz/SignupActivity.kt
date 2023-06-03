@@ -1,16 +1,18 @@
 package com.dhananjay.quiz
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 
 class SignupActivity : AppCompatActivity() {
 
-    lateinit var firebaseAuth: FirebaseAuth
+    private lateinit var firebaseAuth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,11 +22,17 @@ class SignupActivity : AppCompatActivity() {
         findViewById<Button>(R.id.btnSignUp)?.setOnClickListener(View.OnClickListener {
             signUpUser()
         })
+
+        findViewById<TextView>(R.id.btnLogin)?.setOnClickListener(View.OnClickListener {
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+            finish()
+        })
     }
 
     private fun signUpUser(){
 
-        val email = findViewById<EditText>(R.id.etEmailAddress1)?.text.toString()
+        val email = findViewById<EditText>(R.id.etEmailAddress)?.text.toString()
         val password = findViewById<EditText>(R.id.etPassword)?.text.toString()
         val cnfPassword = findViewById<EditText>(R.id.etCnfPassword)?.text.toString()
 
@@ -47,6 +55,9 @@ class SignupActivity : AppCompatActivity() {
                 .addOnCompleteListener(this) {
                     if (it.isSuccessful) {
                         Toast.makeText(this, "Signup successfully!", Toast.LENGTH_SHORT).show()
+                        val intent = Intent(this, LoginActivity::class.java)
+                        startActivity(intent)
+                        finish()
                     } else {
                         Toast.makeText(this, "Error creating user!", Toast.LENGTH_SHORT).show()
                     }

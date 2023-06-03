@@ -35,7 +35,7 @@
             android:text="Enter your email address and password \nto get access to your account" />
 
         <EditText
-            android:id="@+id/etEmailAddress1"
+            android:id="@+id/etEmailAddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/edit_text_background"
