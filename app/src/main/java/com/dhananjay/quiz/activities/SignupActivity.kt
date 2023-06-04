@@ -1,40 +1,43 @@
-package com.dhananjay.quiz
+package com.dhananjay.quiz.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import com.dhananjay.quiz.R
+import com.dhananjay.quiz.databinding.ActivitySignupBinding
 import com.google.firebase.auth.FirebaseAuth
 
 class SignupActivity : AppCompatActivity() {
 
     private lateinit var firebaseAuth: FirebaseAuth
+    lateinit var binding: ActivitySignupBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_signup)
+        binding = ActivitySignupBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         firebaseAuth = FirebaseAuth.getInstance()
 
-        findViewById<Button>(R.id.btnSignUp)?.setOnClickListener(View.OnClickListener {
+        binding.btnSignUp.setOnClickListener {
             signUpUser()
-        })
+        }
 
-        findViewById<TextView>(R.id.btnLogin)?.setOnClickListener(View.OnClickListener {
+        binding.btnLogin.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
             finish()
-        })
+        }
     }
 
     private fun signUpUser(){
 
-        val email = findViewById<EditText>(R.id.etEmailAddress)?.text.toString()
-        val password = findViewById<EditText>(R.id.etPassword)?.text.toString()
-        val cnfPassword = findViewById<EditText>(R.id.etCnfPassword)?.text.toString()
+        val email = binding.etEmailAddress.text.toString()
+        val password = binding.etPassword.text.toString()
+        val cnfPassword = binding.etCnfPassword.text.toString()
 
         val emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+"
 

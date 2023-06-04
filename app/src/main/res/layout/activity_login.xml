@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity">
+    tools:context=".activities.LoginActivity">
 
     <LinearLayout
         android:layout_width="0dp"
@@ -18,19 +18,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/TextAppearance.AppCompat.Title"
-            android:textColor="@color/main"
+            android:textColor="@color/colorPrimary"
             android:text="Login Now" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="@style/TextAppearance.AppCompat.Body1"
-            android:textColor="@color/main"
+            android:textColor="@color/colorPrimary"
             android:layout_marginTop="8dp"
             android:text="Please login to continue using app" />
 
@@ -61,7 +60,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:backgroundTint="@color/main"
+            android:background="@drawable/btn_primary"
             android:textColor="@color/white"
             android:text="Login" />
 
@@ -69,7 +68,7 @@
             android:id="@+id/btnSignUp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/main"
+            android:textColor="@color/colorPrimary"
             android:layout_marginTop="24dp"
             android:textAlignment="center"
             android:text="Don't have an account? Signup" />

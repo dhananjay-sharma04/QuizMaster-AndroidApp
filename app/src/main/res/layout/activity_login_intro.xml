@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginIntro">
+    tools:context=".activities.LoginIntro">
 
 
     <TextView
@@ -12,7 +12,7 @@
         style="@style/TextAppearance.AppCompat.Subhead"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/main"
+        android:textColor="@color/colorPrimary"
         android:textAlignment="center"
         android:text="Isn't life a collection of weird quizzes with \n no answer to half the question"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -25,7 +25,7 @@
         style="@style/TextAppearance.AppCompat.Headline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/main"
+        android:textColor="@color/colorPrimary"
         android:text="Welcome To Quiz Master"
         android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toTopOf="@+id/txtLoginSubHeader"
@@ -46,7 +46,7 @@
         android:id="@+id/btnGetStarted"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/main"
+        android:background="@drawable/btn_primary"
         android:textColor="@color/white"
         android:layout_marginTop="32dp"
         android:text="Get Started"
