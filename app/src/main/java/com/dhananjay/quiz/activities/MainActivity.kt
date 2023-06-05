@@ -55,9 +55,9 @@ class MainActivity : AppCompatActivity() {
             val datePicker = MaterialDatePicker.Builder.datePicker().build()
             datePicker.show(supportFragmentManager, "DatePicker")
             datePicker.addOnPositiveButtonClickListener {
-                Log.d("DATE-PICKER", datePicker.headerText)
-                val dateFormatter = SimpleDateFormat("dd-mm-yyyy")
+                val dateFormatter = SimpleDateFormat("dd-MM-yyyy")
                 val date = dateFormatter.format(Date(it))
+                Log.d("DATE-PICKER", date)
                 val intent = Intent(this, QuestionActivity::class.java)
                 intent.putExtra("DATE", date)
                 startActivity(intent)
@@ -104,6 +104,7 @@ class MainActivity : AppCompatActivity() {
         binding.navigationView.setNavigationItemSelectedListener {
             val intent = Intent(this, ProfileActivity::class.java)
             startActivity(intent)
+            finish()
             binding.mainDrawer.closeDrawers()
             true
         }
