@@ -28,8 +28,9 @@ class ProfileActivity : AppCompatActivity() {
             firebaseAuth.signOut()
 
             val intent = Intent(this, LoginActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent)
-            finish()
+            finishAffinity();
         }
     }
 }
