@@ -51,13 +51,22 @@ class MainActivity : AppCompatActivity() {
         binding.btnDatePicker.setOnClickListener {
             val datePicker = MaterialDatePicker.Builder.datePicker().build()
             datePicker.show(supportFragmentManager, "DatePicker")
-            datePicker.addOnPositiveButtonClickListener {
+            datePicker.addOnPositiveButtonClickListener { it ->
                 val dateFormatter = SimpleDateFormat("dd-MM-yyyy")
                 val date = dateFormatter.format(Date(it))
                 Log.d("DATE-PICKER", date)
                 val intent = Intent(this, QuestionActivity::class.java)
-                intent.putExtra("DATE", date)
-                startActivity(intent)
+                firestore.collection("quizzes").whereEqualTo("title", date)
+                    .get()
+                    .addOnSuccessListener {
+                        if (it != null && !it.isEmpty){
+                            val intent = Intent(this, QuestionActivity::class.java)
+                            intent.putExtra("DATE", date)
+                            startActivity(intent)
+                        } else {
+                            Toast.makeText(this, "No Quizzes available for date : $date", Toast.LENGTH_SHORT).show()
+                        }
+                    }
             }
             datePicker.addOnNegativeButtonClickListener {
                 Log.d("DATE-PICKER", datePicker.headerText)
